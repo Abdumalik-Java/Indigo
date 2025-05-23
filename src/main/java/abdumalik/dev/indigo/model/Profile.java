@@ -35,6 +35,6 @@ public class Profile {
     private Gender gender;
 
     @CreatedDate
-    private LocalDateTime createdAt;
+    private LocalDateTime createdDate = LocalDateTime.now();
 
 }

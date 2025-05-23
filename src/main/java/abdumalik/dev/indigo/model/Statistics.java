@@ -17,6 +17,7 @@ public class Statistics {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+
     @OneToOne
     private CategoryQuartal categoryQuartal;
     @Column(nullable = false)

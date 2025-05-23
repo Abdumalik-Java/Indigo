@@ -21,9 +21,9 @@ public class Document {
     private UUID id;
     @Column(nullable = false)
     private String documentType;
-    @Column(nullable = false)
-    private Integer seriaNumber;
     @Column(nullable = false, unique = true)
+    private Integer seriaNumber;
+    @Column(nullable = false)
     private Integer number;
     @Column(nullable = false)
     private String code;

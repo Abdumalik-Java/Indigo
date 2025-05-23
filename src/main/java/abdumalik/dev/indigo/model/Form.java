@@ -34,7 +34,7 @@ public class Form {
     private Group groupId;
 
     @Column(nullable = false)
-    private LocalDate formDate;
+    private LocalDate fromDate;
     @Column(nullable = false)
     private LocalDate toDate;
     @Column(nullable = false)
