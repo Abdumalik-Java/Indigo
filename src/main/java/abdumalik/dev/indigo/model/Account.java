@@ -2,6 +2,7 @@ package abdumalik.dev.indigo.model;
 
 import abdumalik.dev.indigo.model.entity.Role;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,7 @@ public class Account {
     private UUID id;
     @Column(nullable = false, unique = true)
     private String phoneNumber;
-    @Column(nullable = false, unique = true)
+    @Email
     private String email;
     @Column(nullable = false)
     private String password;
