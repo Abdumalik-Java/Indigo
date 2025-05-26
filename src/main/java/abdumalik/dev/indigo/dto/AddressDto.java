@@ -12,6 +12,6 @@ public class AddressDto {
     private String city;
     private String region;
     private String street;
-    private String homeNumber;
+    private Integer homeNumber;
 
 }
