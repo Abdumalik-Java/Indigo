@@ -35,11 +35,6 @@ public class ReportService {
     }
 
     public Result create(ReportDto dto) {
-        boolean b = repo.existsByProfileId(dto.getProfileId());
-        if (b) {
-            return new Result("This profile is already exists", false);
-        }
-
         Report report = new Report();
         report.setTitle(dto.getTitle());
 

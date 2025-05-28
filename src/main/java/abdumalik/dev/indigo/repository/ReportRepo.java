@@ -9,5 +9,4 @@ import java.util.UUID;
 
 public interface ReportRepo extends JpaRepository<Report, UUID> {
     Optional<Report> findByProfileId(Profile profileId);
-    boolean existsByProfileId(UUID profileId);
 }

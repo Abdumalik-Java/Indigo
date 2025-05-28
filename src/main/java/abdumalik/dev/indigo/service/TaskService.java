@@ -40,11 +40,6 @@ public class TaskService {
     }
 
     public Result create(TaskDto dto) {
-        boolean b = repo.existsByProfileIdOrFiles(dto.getProfileId(), dto.getFileId());
-        if (b) {
-            return new Result("Profile or Files are already exists", false);
-        }
-
         Task task = new Task();
         task.setName(dto.getName());
         task.setDescription(dto.getDescription());

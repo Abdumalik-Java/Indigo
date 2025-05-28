@@ -9,5 +9,4 @@ import java.util.UUID;
 
 public interface EmployeesRepo extends JpaRepository<Employees, UUID> {
     Optional<Employees> findByProfileId(Profile profileId);
-    boolean existsByProfileId(UUID profileId);
 }

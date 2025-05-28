@@ -35,11 +35,6 @@ public class EmployeesService {
     }
 
     public Result create(EmployeesDto dto) {
-        boolean b = repo.existsByProfileId(dto.getProfileId());
-        if (b) {
-            return new Result("Employees info created successfully", false);
-        }
-
         Employees employee = new Employees();
         employee.setTitle(dto.getTitle());
 

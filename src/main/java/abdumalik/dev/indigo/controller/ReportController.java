@@ -1,7 +1,8 @@
 package abdumalik.dev.indigo.controller;
 
-import abdumalik.dev.indigo.dto.AccountDto;
-import abdumalik.dev.indigo.service.AccountService;
+import abdumalik.dev.indigo.dto.ReportDto;
+import abdumalik.dev.indigo.model.Profile;
+import abdumalik.dev.indigo.service.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -12,39 +13,45 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/account")
-public class AccountController {
+@RequestMapping("/report")
+public class ReportController {
 
     @Autowired
-    AccountService service;
+    ReportService service;
 
     @GetMapping
     @PreAuthorize("hasAnyRole('SUPERADMIN','ADMIN', 'TEACHER', 'SUPERVISOR', 'DEPUTY_HEAD', 'PARENT', 'CHILDREN')")
     public HttpEntity<?> readAll() {
-        return new ResponseEntity<>(service.getAllAccounts(), HttpStatus.OK);
+        return new ResponseEntity<>(service.getAllReport(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole('SUPERADMIN','ADMIN', 'TEACHER', 'SUPERVISOR', 'DEPUTY_HEAD', 'PARENT', 'CHILDREN')")
     public HttpEntity<?> readById(@PathVariable UUID id) {
-        return new ResponseEntity<>(service.getAccountById(id), HttpStatus.OK);
+        return new ResponseEntity<>(service.getReportById(id), HttpStatus.OK);
+    }
+
+    @GetMapping("/{profile}")
+    @PreAuthorize("hasAnyRole('SUPERADMIN','ADMIN', 'TEACHER', 'SUPERVISOR', 'DEPUTY_HEAD', 'PARENT', 'CHILDREN')")
+    public HttpEntity<?> readByProfile(@PathVariable Profile profile) {
+        return new ResponseEntity<>(service.getByProfile(profile), HttpStatus.OK);
     }
 
     @PostMapping
     @PreAuthorize("hasAnyRole('SUPERADMIN','ADMIN', 'TEACHER', 'SUPERVISOR', 'DEPUTY_HEAD', 'PARENT', 'CHILDREN')")
-    public HttpEntity<?> create(@RequestBody AccountDto accountDto) {
-        return new ResponseEntity<>(service.create(accountDto), HttpStatus.CREATED);
+    public HttpEntity<?> createReport(@RequestBody ReportDto reportDto) {
+        return new ResponseEntity<>(service.create(reportDto), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
     @PreAuthorize("hasAnyRole('SUPERADMIN','ADMIN', 'TEACHER', 'SUPERVISOR', 'DEPUTY_HEAD', 'PARENT', 'CHILDREN')")
-    public HttpEntity<?> update(@PathVariable UUID id, @RequestBody AccountDto accountDto) {
-        return new ResponseEntity<>(service.update(id, accountDto), HttpStatus.OK);
+    public HttpEntity<?> updateReport(@PathVariable UUID id, @RequestBody ReportDto reportDto) {
+        return new ResponseEntity<>(service.update(id, reportDto), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole('SUPERADMIN','ADMIN', 'TEACHER', 'SUPERVISOR', 'DEPUTY_HEAD', 'PARENT', 'CHILDREN')")
-    public HttpEntity<?> delete(@PathVariable UUID id) {
+    public HttpEntity<?> deleteReport(@PathVariable UUID id) {
         return new ResponseEntity<>(service.delete(id), HttpStatus.OK);
     }
 
