@@ -24,7 +24,7 @@ public class SecurityConfig {
     @Bean
     public AuthenticationProvider authenticationProvider() {
         String password = UUID.randomUUID().toString();
-        System.out.println("                ---------------------------User Password -----------------------> " + password);
+        System.out.println("              ---------------------------------------------User Password -----------------------> " + password);
 
         UserDetails user = User.builder()
                 .username("user")
