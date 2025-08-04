@@ -1,7 +1,6 @@
 package abdumalik.dev.indigo.controller;
 
 import abdumalik.dev.indigo.dto.ProfileKidsDto;
-import abdumalik.dev.indigo.model.ProfileKids;
 import abdumalik.dev.indigo.service.ProfileKidsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;

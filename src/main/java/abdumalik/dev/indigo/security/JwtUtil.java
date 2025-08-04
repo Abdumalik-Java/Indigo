@@ -15,7 +15,7 @@ public class JwtUtil {
 
     private static final int tokenLiveTime = 1000 * 3600 * 24;
     private static final long refreshTokenLiveTime = 1000L * 3600 * 24 * 30;
-    private static final String secretKey = "abdumalikthebestprogrammerintheworldandherecommendtosubscribetohissocialmediasandtothegithubAbdumalik-Java";
+    private static final String secretKey = "abdumalikthebestprogrammerintheworldandherecommendtosubscribetohissocialmediasandtothegithubAbdumalik-ProDev";
 
     public static String encode(String username, String role) {
         Map<String, Object> extraClaims = new HashMap<>();
